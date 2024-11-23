@@ -8,7 +8,7 @@ import asyncio
 api = ''
 bot = Bot(token = api)
 storage = MemoryStorage()
-dp = Dispatcher(bot, storage = MemoryStorage())
+dp = Dispatcher(bot, storage = storage)
 
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
 calc_button = KeyboardButton(text= 'Рассчитать')

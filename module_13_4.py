@@ -7,7 +7,7 @@ import asyncio
 api = ''
 bot = Bot(token = api)
 storage = MemoryStorage()
-dp = Dispatcher(bot, storage = MemoryStorage())
+dp = Dispatcher(bot, storage = storage)
 
 class UserState(StatesGroup):
     age = State()
