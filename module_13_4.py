@@ -4,7 +4,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 import asyncio
 
-api = ''
+api = '7070480614:AAE3D4JAMZWzrLKgGumFjyKy3qweLMcZgT8'
 bot = Bot(token = api)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage = MemoryStorage())
@@ -13,6 +13,8 @@ class UserState(StatesGroup):
     age = State()
     growth = State()
     weight = State()
+
+
 
 @dp.message_handler(commands = ['start'])
 async def start_message(message):
@@ -43,5 +45,8 @@ async def send_calories(message: types.Message, state: FSMContext):
     await message.answer(f'Ваша норма калорий: {calories}')
     await state.finish()
 
+@dp.message_handler()
+async def all_message(message):
+    await message.answer('Введите команду /start, чтобы начать общение.')
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
